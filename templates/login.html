@@ -2,18 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Portal - Hostel</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-image: url('{{ url_for('static', filename='images/hostel_bg.jpg') }}');">
-    <div class="glass-card" style="text-align: center; margin-top: 100px;">
-        <h2 style="color: #d4af37;">Admin Portal</h2>
-        <p style="color: #9ca3af;">Guru Daksh Government Polytechnic Hisar</p>
-        <form action="/login" method="POST">
-            <input type="text" name="username" placeholder="Enter Admin ID" required>
-            <input type="password" name="password" placeholder="Enter Password" required>
-            <button type="submit">Secure Login</button>
+<body style="background-image: url('images/hostel_bg.jpg'); display: flex; align-items: center; justify-content: center;">
+    <div class="glass-card" style="text-align: center;">
+        <div style="font-size: 40px; color: #d4af37; margin-bottom: 10px;">🛡️</div>
+        <h2 style="color: #d4af37; margin: 5px 0;">Admin Portal</h2>
+        <p style="color: #9ca3af; font-size: 13px; margin-bottom: 25px;">Guru Daksh Government Polytechnic Hisar</p>
+        
+        <form action="dashboard.html" method="GET">
+            <input type="text" placeholder="Enter Admin ID" required style="text-align: center;">
+            <input type="password" placeholder="Enter Password" required style="text-align: center;">
+            <button type="submit" class="btn-gold" style="width: 100%; justify-content: center; margin-top: 15px;">Secure Login</button>
         </form>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="index.html" style="color: #d4af37; text-decoration: none; font-size: 14px;">← Back to Home</a>
+        </div>
     </div>
 </body>
 </html>
