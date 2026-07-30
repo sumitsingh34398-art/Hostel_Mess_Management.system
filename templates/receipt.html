@@ -2,29 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Receipt</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-image: url('{{ url_for('static', filename='images/hostel_bg.jpg') }}');">
-    <div class="glass-card" style="background: #ffffff; color: #111; width: 450px;">
-        <h2 style="text-align: center; color: #064e3b; margin-bottom: 5px;">GOVT. HOSTEL HISAR</h2>
+<body style="background-image: url('images/hostel_bg.jpg'); display: flex; align-items: center; justify-content: center;">
+    <div class="glass-card" style="background: #ffffff; color: #111; max-width: 450px;">
+        <h2 style="text-align: center; color: #064e3b; margin-bottom: 2px;">GOVT. HOSTEL HISAR</h2>
         <p style="text-align: center; color: #666; font-size: 12px; margin-top:0;">HISAR, HARYANA - 125001</p>
         <hr style="border: 1px solid #d4af37;">
-        <h3 style="text-align: center; color: #064e3b;">PAID SUCCESSFULLY</h3>
+        <h3 style="text-align: center; color: #064e3b; margin: 10px 0;">PAID SUCCESSFULLY</h3>
         
-        <p><b>Receipt Number:</b> #RCP-{{ rec[0] }}</p>
-        <p><b>Date & Time:</b> {{ rec[1] }}</p>
-        <p><b>Student Name:</b> {{ rec[2] }}</p>
-        <p><b>Mobile Number:</b> {{ rec[3] }}</p>
-        <p><b>Room Number:</b> {{ rec[4] }}</p>
-        <p><b>Floor:</b> {{ rec[5] }}</p>
-        <p><b>Payment For:</b> Mess Fee - {{ rec[6] }} 2026</p>
-        <p><b>Amount Paid:</b> ₹{{ rec[7] }}</p>
-        <p><b>Status:</b> <span style="color: green; font-weight: bold;">{{ rec[8] }}</span></p>
+        <p style="font-size: 14px; margin: 6px 0;"><b>Receipt Number:</b> #RCP-20260730</p>
+        <p style="font-size: 14px; margin: 6px 0;"><b>Date & Time:</b> 30 Jul 2026 | 01:15 PM</p>
+        <p style="font-size: 14px; margin: 6px 0;"><b>Student Name:</b> Rahul Kumar</p>
+        <p style="font-size: 14px; margin: 6px 0;"><b>Mobile Number:</b> 9876543210</p>
+        <p style="font-size: 14px; margin: 6px 0;"><b>Room Number:</b> A-203</p>
+        <p style="font-size: 14px; margin: 6px 0;"><b>Floor:</b> 1st Floor</p>
+        <p style="font-size: 14px; margin: 6px 0;"><b>Payment For:</b> Mess Fee - July 2026</p>
+        <p style="font-size: 14px; margin: 6px 0;"><b>Amount Paid:</b> ₹1,500.00</p>
+        <p style="font-size: 14px; margin: 6px 0;"><b>Status:</b> <span style="color: green; font-weight: bold;">Paid</span></p>
         
-        <button onclick="window.print()" style="background: #064e3b; color: #fff;">Print / Download Receipt</button>
+        <button onclick="window.print()" style="background: #064e3b; color: #fff; width: 100%; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 15px;">Print / Download Receipt</button>
         <br><br>
-        <a href="/form" style="text-align: center; display: block; color: #064e3b; text-decoration: none; font-weight: bold;">← Back to Form</a>
+        <a href="index.html" style="text-align: center; display: block; color: #064e3b; text-decoration: none; font-weight: bold; font-size: 14px;">← Back to Home</a>
     </div>
 </body>
 </html>
