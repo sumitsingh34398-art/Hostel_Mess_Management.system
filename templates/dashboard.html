@@ -2,26 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart QR Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-image: url('{{ url_for('static', filename='images/hostel_bg.jpg') }}');">
-    <div style="width: 95%; margin: auto; padding-top: 20px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(17,24,39,0.9); padding: 15px 30px; border-radius: 12px; border: 1px solid #d4af37;">
-            <h2 style="color: #d4af37; margin:0;">Smart QR Dashboard</h2>
-            <a href="/logout"><button style="width: auto; padding: 8px 20px; margin:0;">Logout</button></a>
+<body style="background-image: url('images/hostel_bg.jpg');">
+    <div style="width: 92%; max-width: 1200px; margin: auto; padding-top: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(17,24,39,0.9); padding: 15px 30px; border-radius: 12px; border: 1px solid #d4af37; flex-wrap: wrap; gap: 10px;">
+            <h2 style="color: #d4af37; margin:0; font-size: 20px;">Smart QR Dashboard</h2>
+            <a href="index.html"><button class="btn-dark" style="padding: 8px 20px; margin:0;">Logout</button></a>
         </div>
 
         <div style="display: flex; gap: 30px; margin-top: 30px; flex-wrap: wrap;">
             <div class="glass-card" style="text-align: center; flex: 1; margin:0;">
                 <h3 style="color: #d4af37;">Mess Hostel Fees QR Code</h3>
-                <img src="/generate_qr" alt="QR Code" width="200" style="border-radius: 10px; background: #fff; padding: 10px;">
-                <p style="color: #9ca3af; margin-top: 10px;">Scan to open Mess Form & Pay</p>
-                <a href="/form" target="_blank"><button>Open Student Form Link</button></a>
+                <div style="background: #fff; padding: 10px; display: inline-block; border-radius: 10px; margin-top: 10px;">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://github.com" alt="QR Code">
+                </div>
+                <p style="color: #9ca3af; margin-top: 10px; font-size: 14px;">Scan to open Mess Form & Pay</p>
+                <a href="form.html" target="_blank"><button class="btn-gold" style="width: 100%; justify-content: center;">Open Student Form Link</button></a>
             </div>
 
             <div class="glass-card" style="flex: 2; margin:0; width: auto;">
-                <h3 style="color: #d4af37;">Live Records</h3>
+                <h3 style="color: #d4af37; margin-top:0;">Live Records</h3>
                 <div style="overflow-x: auto;">
                     <table>
                         <tr>
@@ -32,16 +35,14 @@
                             <th>Month</th>
                             <th>Amount</th>
                         </tr>
-                        {% for r in records %}
                         <tr>
-                            <td>{{ r[0] }}</td>
-                            <td>{{ r[1] }}</td>
-                            <td>{{ r[2] }}</td>
-                            <td>{{ r[3] }}</td>
-                            <td>{{ r[5] }}</td>
-                            <td>₹{{ r[6] }}</td>
+                            <td>30 Jul 2026 | 01:15 PM</td>
+                            <td>Rahul Kumar</td>
+                            <td>9876543210</td>
+                            <td>A-203</td>
+                        <td>August</td>
+                            <td>₹1500</td>
                         </tr>
-                        {% endfor %}
                     </table>
                 </div>
             </div>
