@@ -6,40 +6,44 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body style="background-image: url('{{ url_for('static', filename='images/hostel_bg.jpg') }}');">
-    <div style="width: 90%; margin: auto; padding-top: 20px;">
+    <div style="width: 95%; margin: auto; padding-top: 20px;">
         <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(17,24,39,0.9); padding: 15px 30px; border-radius: 12px; border: 1px solid #d4af37;">
-            <h2>Smart QR Dashboard</h2>
-            <a href="/logout"><button style="width: auto; padding: 8:px 20px;">Logout</button></a>
+            <h2 style="color: #d4af37; margin:0;">Smart QR Dashboard</h2>
+            <a href="/logout"><button style="width: auto; padding: 8px 20px; margin:0;">Logout</button></a>
         </div>
 
-        <div style="display: flex; gap: 30px; margin-top: 30px;">
-            <div class="glass-card" style="text-align: center; flex: 1;">
-                <h3>Mess QR Code</h3>
-                <img src="/generate_qr" alt="QR Code" width="220" style="border-radius: 10px; background: #fff; padding: 10px;">
-                <p style="color: #d4af37; margin-top: 10px;">Scan to open Mess Form & Pay</p>
+        <div style="display: flex; gap: 30px; margin-top: 30px; flex-wrap: wrap;">
+            <div class="glass-card" style="text-align: center; flex: 1; margin:0;">
+                <h3 style="color: #d4af37;">Mess Hostel Fees QR Code</h3>
+                <img src="/generate_qr" alt="QR Code" width="200" style="border-radius: 10px; background: #fff; padding: 10px;">
+                <p style="color: #9ca3af; margin-top: 10px;">Scan to open Mess Form & Pay</p>
                 <a href="/form" target="_blank"><button>Open Student Form Link</button></a>
             </div>
 
-            <div class="glass-card" style="flex: 2; width: auto;">
-                <h3>Live Records</h3>
-                <table>
-                    <tr>
-                        <th>Timestamp</th>
-                        <th>Name</th>
-                        <th>Room/No</th>
-                        <th>Floor</th>
-                        <th>Amount</th>
-                    </tr>
-                    {% for r in records %}
-                    <tr>
-                        <td>{{ r[0] }}</td>
-                        <td>{{ r[1] }}</td>
-                        <td>{{ r[2] }}</td>
-                        <td>{{ r[3] }}</td>
-                        <td>₹{{ r[5] }}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
+            <div class="glass-card" style="flex: 2; margin:0; width: auto;">
+                <h3 style="color: #d4af37;">Live Records</h3>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Name</th>
+                            <th>Mobile</th>
+                            <th>Room</th>
+                            <th>Month</th>
+                            <th>Amount</th>
+                        </tr>
+                        {% for r in records %}
+                        <tr>
+                            <td>{{ r[0] }}</td>
+                            <td>{{ r[1] }}</td>
+                            <td>{{ r[2] }}</td>
+                            <td>{{ r[3] }}</td>
+                            <td>{{ r[5] }}</td>
+                            <td>₹{{ r[6] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
             </div>
         </div>
     </div>
