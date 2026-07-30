@@ -6,7 +6,6 @@ from flask import Flask, render_template, request, redirect, url_for, session, s
 app = Flask(__name__)
 app.secret_key = 'hostel_secret_key_secure'
 
-# Database Setup
 def init_db():
     conn = sqlite3.connect('hostel.db')
     cursor = conn.cursor()
@@ -15,9 +14,10 @@ def init_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             timestamp TEXT,
             name TEXT,
-            number TEXT,
-            branch TEXT,
-            subject TEXT,
+            mobile TEXT,
+            room TEXT,
+            floor TEXT,
+            month TEXT,
             amount REAL,
             status TEXT
         )
@@ -32,7 +32,7 @@ def login():
     return render_template('login.html')
 
 @app.route('/login', methods=['POST'])
-do_login():
+def do_login():
     username = request.form.get('username')
     password = request.form.get('password')
     if username == "admin" and password == "admin123":
@@ -47,7 +47,7 @@ def dashboard():
     
     conn = sqlite3.connect('hostel.db')
     cursor = conn.cursor()
-    cursor.execute('SELECT timestamp, name, number, branch, subject, amount FROM records ORDER BY id DESC')
+    cursor.execute('SELECT timestamp, name, mobile, room, floor, month, amount FROM records ORDER BY id DESC')
     records = cursor.fetchall()
     conn.close()
     
@@ -59,17 +59,18 @@ def student_form():
         import datetime
         timestamp = datetime.datetime.now().strftime("%d %b %Y | %I:%M %p")
         name = request.form.get('name')
-        number = request.form.get('number')
-        branch = request.form.get('branch')
-        subject = request.form.get('subject')
+        mobile = request.form.get('mobile')
+        room = request.form.get('room')
+        floor = request.form.get('floor')
+        month = request.form.get('month')
         amount = float(request.form.get('amount', 1500))
         
         conn = sqlite3.connect('hostel.db')
         cursor = conn.cursor()
         cursor.execute('''
-            INSERT INTO records (timestamp, name, number, branch, subject, amount, status)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-        ''', (timestamp, name, number, branch, subject, amount, 'Paid'))
+            INSERT INTO records (timestamp, name, mobile, room, floor, month, amount, status)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (timestamp, name, mobile, room, floor, month, amount, 'Paid'))
         conn.commit()
         rec_id = cursor.lastrowid
         conn.close()
