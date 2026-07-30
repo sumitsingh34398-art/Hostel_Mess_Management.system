@@ -2,52 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hostel Mess Bill Form</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-image: url('{{ url_for('static', filename='images/hostel_bg.jpg') }}');">
+<body style="background-image: url('images/hostel_bg.jpg'); display: flex; align-items: center; justify-content: center;">
     <div class="glass-card">
-        <h2 style="text-align: center; color: #d4af37;">HOSTEL MESS BILL FORM</h2>
-        <p style="text-align: center; color: #9ca3af; font-size: 14px;">Fill the details below to generate mess bill slip</p>
+        <h2 style="text-align: center; color: #d4af37; margin-top: 0;">HOSTEL MESS BILL FORM</h2>
+        <p style="text-align: center; color: #9ca3af; font-size: 13px;">Fill the details below to generate mess bill slip</p>
         
-        <form action="/form" method="POST">
-            <label>Student Full Name:</label>
-            <input type="text" name="name" placeholder="Enter student full name" required>
+        <form action="receipt.html" method="GET">
+            <label style="font-size: 13px; color: #d4af37;">Student Full Name:</label>
+            <input type="text" placeholder="Enter student full name" required>
             
-            <label>Mobile Number:</label>
-            <input type="text" name="mobile" placeholder="Enter 10-digit mobile number" required>
+            <label style="font-size: 13px; color: #d4af37;">Mobile Number:</label>
+            <input type="text" placeholder="Enter 10-digit mobile number" required>
             
-            <label>Room Number:</label>
-            <input type="text" name="room" placeholder="Enter room number" required>
+            <label style="font-size: 13px; color: #d4af37;">Room Number:</label>
+            <input type="text" placeholder="Enter room number" required>
             
-            <label>Floor / Block:</label>
-            <select name="floor">
-                <option value="Ground Floor">Ground Floor</option>
-                <option value="1st Floor">1st Floor</option>
-                <option value="2nd Floor">2nd Floor</option>
+            <label style="font-size: 13px; color: #d4af37;">Floor / Block:</label>
+            <select>
+                <option>Ground Floor</option>
+                <option>1st Floor</option>
+                <option>2nd Floor</option>
             </select>
             
-            <label>Month / Meal Type:</label>
-            <select name="month">
-                <option value="January">January Mess Bill</option>
-                <option value="February">February Mess Bill</option>
-                <option value="March">March Mess Bill</option>
-                <option value="April">April Mess Bill</option>
-                <option value="May">May Mess Bill</option>
-                <option value="June">June Mess Bill</option>
-                <option value="July" selected>July Mess Bill</option>
-                <option value="August">August Mess Bill</option>
-                <option value="September">September Mess Bill</option>
-                <option value="October">October Mess Bill</option>
-                <option value="November">November Mess Bill</option>
-                <option value="December">December Mess Bill</option>
+            <label style="font-size: 13px; color: #d4af37;">Month / Meal Type:</label>
+            <select>
+                <option>January Mess Bill</option>
+                <option>February Mess Bill</option>
+                <option>March Mess Bill</option>
+                <option>April Mess Bill</option>
+                <option>May Mess Bill</option>
+                <option>June Mess Bill</option>
+                <option selected>July Mess Bill</option>
+                <option>August Mess Bill</option>
+                <option>September Mess Bill</option>
+                <option>October Mess Bill</option>
+                <option>November Mess Bill</option>
+                <option>December Mess Bill</option>
             </select>
 
-            <label>Amount (₹):</label>
-            <input type="number" name="amount" value="1500" required>
+            <label style="font-size: 13px; color: #d4af37;">Amount (₹):</label>
+            <input type="number" value="1500" readonly>
             
-            <button type="submit">Generate Slip & Pay</button>
+            <button type="submit" class="btn-gold" style="width: 100%; justify-content: center; margin-top: 15px;">Generate Slip & Pay</button>
         </form>
+        <div style="text-align: center; margin-top: 15px;">
+            <a href="index.html" style="color: #d4af37; text-decoration: none; font-size: 14px;">← Back to Home</a>
+        </div>
     </div>
 </body>
 </html>
