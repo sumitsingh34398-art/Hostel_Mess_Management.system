@@ -1,1 +1,30 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Receipt</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background-image: url('{{ url_for('static', filename='images/hostel_bg.jpg') }}');">
+    <div class="glass-card" style="background: #ffffff; color: #111; width: 450px;">
+        <h2 style="text-align: center; color: #064e3b; margin-bottom: 5px;">GOVT. HOSTEL HISAR</h2>
+        <p style="text-align: center; color: #666; font-size: 12px; margin-top:0;">HISAR, HARYANA - 125001</p>
+        <hr style="border: 1px solid #d4af37;">
+        <h3 style="text-align: center; color: #064e3b;">PAID SUCCESSFULLY</h3>
+        
+        <p><b>Receipt Number:</b> #RCP-{{ rec[0] }}</p>
+        <p><b>Date & Time:</b> {{ rec[1] }}</p>
+        <p><b>Student Name:</b> {{ rec[2] }}</p>
+        <p><b>Mobile Number:</b> {{ rec[3] }}</p>
+        <p><b>Room Number:</b> {{ rec[4] }}</p>
+        <p><b>Floor:</b> {{ rec[5] }}</p>
+        <p><b>Payment For:</b> Mess Fee - {{ rec[6] }} 2026</p>
+        <p><b>Amount Paid:</b> ₹{{ rec[7] }}</p>
+        <p><b>Status:</b> <span style="color: green; font-weight: bold;">{{ rec[8] }}</span></p>
+        
+        <button onclick="window.print()" style="background: #064e3b; color: #fff;">Print / Download Receipt</button>
+        <br><br>
+        <a href="/form" style="text-align: center; display: block; color: #064e3b; text-decoration: none; font-weight: bold;">← Back to Form</a>
+    </div>
+</body>
+</html>
